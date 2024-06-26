@@ -59,9 +59,10 @@ clean:
 
 install: all
 	mkdir -p $(DESTDIR)$(PREFIX)/bin
-	cp -f mew mew-run $(DESTDIR)$(PREFIX)/bin
+	cp -f mew mew-run pinentry-mew $(DESTDIR)$(PREFIX)/bin
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/mew
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/mew-run
+	chmod 755 $(DESTDIR)$(PREFIX)/bin/pinentry-mew
 	mkdir -p $(DESTDIR)$(MANPREFIX)/man1
 	sed "s/VERSION/$(VERSION)/g" < mew.1 > $(DESTDIR)$(MANPREFIX)/man1/mew.1
 	chmod 644 $(DESTDIR)$(MANPREFIX)/man1/mew.1
@@ -69,6 +70,7 @@ install: all
 uninstall:
 	rm -f $(DESTDIR)$(PREFIX)/bin/mew\
 		$(DESTDIR)$(PREFIX)/bin/mew-run\
+		$(DESTDIR)$(PREFIX)/bin/pinentry-emenu\
 		$(DESTDIR)$(MANPREFIX)/man1/mew.1
 
 .PHONY: all clean install uninstall
