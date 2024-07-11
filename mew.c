@@ -617,6 +617,8 @@ keyboard_keypress(enum wl_keyboard_key_state state, xkb_keysym_t sym, int ctrl, 
 		submit((sel && !shift) ? sel->text : text);
 		if (!ctrl && submit != exec_cmd)
 			running = 0;
+		if (sel)
+			sel->out = 1;
 		return;
 	case XKB_KEY_Right:
 	case XKB_KEY_KP_Right:
